@@ -17,7 +17,7 @@
     const params = new URLSearchParams(window.location.search);
     const slug = params.get("slug");
 
-    const project = projectsData.find(p => p.slug === slug);
+    const project = projectsData[slug];
     if (project) {
         document.getElementById("project-title").textContent = `// ${project.title}`;
         document.getElementById("project-description").textContent = project.description;

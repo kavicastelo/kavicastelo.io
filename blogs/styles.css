@@ -48,6 +48,10 @@ body {
     border-color: #64ffda;
 }
 
+ol, ul {
+    padding: 1rem 2rem;
+}
+
 /* === Animations === */
 @keyframes fadeIn {
     from {
