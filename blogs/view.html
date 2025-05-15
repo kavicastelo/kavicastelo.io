@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Blog View</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dark-theme">
+<div class="view-container">
+    <h1 id="blog-title">// Blog Title</h1>
+    <p id="blog-content">// Loading...</p>
+    <a href="/" class="back-link">> back()</a>
+</div>
+
+<script src="../js/utils/blogsData.js"></script>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+
+    const blog = blogsData.find(b => b.slug === slug);
+    if (blog) {
+        document.getElementById("blog-title").textContent = `// ${blog.title}`;
+        document.getElementById("blog-content").textContent = blog.content;
+    } else {
+        document.getElementById("blog-title").textContent = "// 404 - Not Found";
+        document.getElementById("blog-content").textContent = `No blog found with slug: ${slug}`;
+    }
+</script>
+</body>
+</html>
