@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Project View</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="dark-theme">
+<div class="view-container">
+    <h1 id="project-title">// Project Title</h1>
+    <p id="project-description">// Loading...</p>
+    <a href="/" class="back-link">> back()</a>
+</div>
+
+<script src="../js/utils/projectsData.js"></script>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+
+    const project = projectsData.find(p => p.slug === slug);
+    if (project) {
+        document.getElementById("project-title").textContent = `// ${project.title}`;
+        document.getElementById("project-description").textContent = project.description;
+    } else {
+        document.getElementById("project-title").textContent = "// 404 - Not Found";
+        document.getElementById("project-description").textContent = `No project found with slug: ${slug}`;
+    }
+</script>
+</body>
+</html>
