@@ -65,9 +65,7 @@ const commands = {
     "view project": (slug) => {
         writeOutput(`Fetching project: ${slug}...`);
         setTimeout(() => {
-            console.log(slug)
             const project = projectsData[slug];
-            console.log(project)
             if (project) {
                 writeOutput(`${project.title}`);
                 writeOutput(`${project.description}`);

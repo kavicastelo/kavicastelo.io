@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Simulate sending
         writeOutput(`Sending message from ${name} <${email}>...`);
         setTimeout(() => {
-            writeOutput("✅ Message sent successfully!");
+            writeOutput("⭕ Trouble sending message. Send direct to kavindu@talentboozt.com");
         }, 1200);
 
         this.reset();
@@ -105,12 +105,3 @@ function scrambleText(element, finalText, duration = 2) {
         iterations += 1 / (duration * 60); // 60 fps
     }, 1000 / 60);
 }
-
-// Blog click navigation
-document.querySelectorAll(".blog-card").forEach(card => {
-    card.addEventListener("click", () => {
-        const baseURL = window.location.origin || (window.location.protocol + "//" + window.location.host);
-        const targetUrl = `${baseURL}/blogs/view.html?slug=${card.getAttribute("data-url")}`;
-        if (targetUrl)window.open(targetUrl, "_blank");
-    });
-});
