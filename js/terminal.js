@@ -65,11 +65,13 @@ const commands = {
     "view project": (slug) => {
         writeOutput(`Fetching project: ${slug}...`);
         setTimeout(() => {
+            console.log(slug)
             const project = projectsData[slug];
+            console.log(project)
             if (project) {
                 writeOutput(`${project.title}`);
                 writeOutput(`${project.description}`);
-                writeOutput(`🛠 Stack: ${project.stack.join(", ")}`);
+                // writeOutput(`🛠 Stack: ${project.stack.join(", ")}`);
                 if (project.link) writeOutput(`🔗 Link: ${project.link}`);
                 if (project.slug) {
                     writeOutput(`🔗 Opening...`);
@@ -126,6 +128,8 @@ const commandAliases = {
     p: "projects",
     c: "contact",
     ls: "help", // fallback for beginners
+    "ls projects": "ls projects", // avoid ls override
+    "ls blogs": "ls blogs",
     "ls p": "ls projects",
     "ls b": "ls blogs",
     "vp": "view project",

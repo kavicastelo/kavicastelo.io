@@ -11,8 +11,7 @@ body {
     padding: 2rem;
 }
 
-/* === View Page Container === */
-.view-container {
+#project-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
@@ -23,29 +22,58 @@ body {
     animation: fadeIn 0.8s ease-out;
 }
 
-.view-container h1 {
-    color: #64ffda;
+.project-banner {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+h1 {
     font-size: 2rem;
-    margin-bottom: 1rem;
 }
 
-.view-container p {
-    font-size: 1rem;
-    color: #cccccc;
-    white-space: pre-wrap;
+h1, h2 {
+    color: #00ffcc;
 }
 
-.back-link {
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+    gap: 5px;
+}
+.tag{
     display: inline-block;
-    margin-top: 2rem;
-    color: #00e4ff;
-    text-decoration: none;
-    border-bottom: 1px dotted #00e4ff;
-    transition: all 0.2s ease;
+    background-color: #00ffcc;
+    border: 1px solid #00ffcc;
+    color: #0f1117;
+    padding: 0.15rem 0.5rem;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+    transition: all 0.2s ease-in-out;
 }
-.back-link:hover {
-    color: #64ffda;
-    border-color: #64ffda;
+.tag:hover {
+    background-color: transparent;
+    border: 1px solid #00ffcc;
+    color: #00ffcc;
+    cursor: pointer;
+}
+
+a {
+    color: #ff9900;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ol, ul {
+    padding: 1rem 2rem;
 }
 
 /* === Animations === */
@@ -62,11 +90,11 @@ body {
 
 /* === Responsive === */
 @media (max-width: 600px) {
-    .view-container {
+    #project-container {
         padding: 1.5rem;
     }
 
-    .view-container h1 {
+    #project-container h1 {
         font-size: 1.5rem;
     }
 }

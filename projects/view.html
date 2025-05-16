@@ -2,29 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Project View</title>
+    <title id="page-title">Loading...</title>
+    <meta name="description" id="meta-description" content="Default project description">
+    <meta property="og:title" id="og-title" content="">
+    <meta property="og:description" id="og-description" content="">
+    <meta property="og:url" id="og-url" content="">
+    <meta name="twitter:title" id="twitter-title" content="">
+    <meta name="twitter:description" id="twitter-description" content="">
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body class="dark-theme">
-<div class="view-container">
-    <h1 id="project-title">// Project Title</h1>
-    <p id="project-description">// Loading...</p>
-    <a href="/" class="back-link">> back()</a>
+<div id="project-container">
+    <!-- Dynamically populated -->
 </div>
 
 <script src="../js/utils/projectsData.js"></script>
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get("slug");
-
-    const project = projectsData[slug];
-    if (project) {
-        document.getElementById("project-title").textContent = `// ${project.title}`;
-        document.getElementById("project-description").textContent = project.description;
-    } else {
-        document.getElementById("project-title").textContent = "// 404 - Not Found";
-        document.getElementById("project-description").textContent = `No project found with slug: ${slug}`;
-    }
-</script>
+<script src="./main.js"></script>
 </body>
 </html>
