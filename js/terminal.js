@@ -23,6 +23,14 @@ function writeOutput(text, delay = 0) {
     });
 }
 
+function getBasePath() {
+    const pathParts = window.location.pathname.split("/");
+    if (pathParts.length > 1) {
+        return window.location.origin + "/" + pathParts[1]; // e.g., kavicastelo.io
+    }
+    return window.location.origin;
+}
+
 // Command actions
 const commands = {
     help: () => {
@@ -73,9 +81,9 @@ const commands = {
                 if (project.link) writeOutput(`🔗 Link: ${project.link}`);
                 if (project.slug) {
                     writeOutput(`🔗 Opening...`);
-                    const baseURL = window.location.origin || (window.location.protocol + "//" + window.location.host);
-                    const targetUrl = `${baseURL}/projects/view.html?slug=${project.slug}`;
-                    window.open(targetUrl, "_blank");
+                    const basePath = getBasePath();
+                    const targetUrl = `${basePath}/projects/view.html?slug=${project.slug}`;
+                    if (targetUrl) window.open(targetUrl, "_blank");
                 }
             } else {
                 writeOutput("❌ Project not found.");
@@ -92,9 +100,9 @@ const commands = {
                 writeOutput(`${blog.summary}`);
                 if (blog.slug) {
                     writeOutput(`🔗 Opening...`);
-                    const baseURL = window.location.origin || (window.location.protocol + "//" + window.location.host);
-                    const targetUrl = `${baseURL}/blogs/view.html?slug=${blog.slug}`;
-                    window.open(targetUrl, "_blank");
+                    const basePath = getBasePath();
+                    const targetUrl = `${basePath}/blogs/view.html?slug=${blog.slug}`;
+                    if (targetUrl) window.open(targetUrl, "_blank");
                 }
             } else {
                 writeOutput("❌ Blog not found.");
